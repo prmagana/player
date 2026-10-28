@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "player",
+  "main": ".open-next/worker.js",
+  "workers_dev": false,
+  // Cloudflare manages the DNS record and cert for a custom domain route.
+  "routes": [{ "pattern": "play.tapt.so", "custom_domain": true }],
+  "compatibility_date": "2026-10-27",
+  "compatibility_flags": ["nodejs_compat"],
+  // Public config. Secrets go in via `wrangler secret put`.
+  "vars": {
+    "TELEGRAM_CLIENT_ID": "9249238407"
+  },
+  "upload_source_maps": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "player",
+      "database_id": "30ca5bbd-800e-446d-9bbd-4dcec741a41c",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
