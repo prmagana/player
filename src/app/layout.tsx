@@ -6,7 +6,8 @@ export const metadata: Metadata = {
   // Template without %s pins every tab to "Form", child titles are ignored.
   title: { default: "Player", template: "Player" },
   description: "Player",
-  icons: { icon: "/favicon.svg" },
+  // tapt's star, served by root so every tool shares one file.
+  icons: { icon: "https://tapt.so/icon.svg" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
